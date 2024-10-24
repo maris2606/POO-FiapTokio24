@@ -1,4 +1,4 @@
-package aulas;
+package aula1;
 
 public class HelloWorld {
 
