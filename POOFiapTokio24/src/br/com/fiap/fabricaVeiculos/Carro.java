@@ -1,15 +1,16 @@
 package br.com.fiap.fabricaVeiculos;
+import java.util.Date;
 
 public class Carro {
 	private String marca;
 	private String modelo;
 	private String cor;
-	private String anoFabricacao;
-	private String anoModelo;
+	private Date anoFabricacao;
+	private Date anoModelo;
 	private String renavam;
 	private String motor;
 	private String tipoCambio;
-	private String aro;
+	private Double aro;
 	private Double velocidade;
 	private String nomeCondutor;
 	private boolean ligado;
@@ -17,12 +18,12 @@ public class Carro {
 	
 	
 	public Carro(String marca, String modelo, String cor, String anoFabricacao, String anoModelo, String renavam,
-			String motor, String tipoCambio, String aro, Double velocidade, String nomeCondutor) {
+			String motor, String tipoCambio, Double aro, Double velocidade, String nomeCondutor) {
 		this.marca = marca;
 		this.modelo = modelo;
 		this.cor = cor;
-		this.anoFabricacao = anoFabricacao;
-		this.anoModelo = anoModelo;
+		this.anoFabricacao = new Date();
+		this.anoModelo = new Date(); // tem sql date tbm
 		this.renavam = renavam;
 		this.motor = motor;
 		this.tipoCambio = tipoCambio;
@@ -34,7 +35,7 @@ public class Carro {
 
 
 	public void ligar() {
-		if(ligado == false) {
+		if(!this.ligado) {
 			System.out.println("o carro está ligando");
 			setLigado(true);
 		} else {
@@ -44,7 +45,7 @@ public class Carro {
 	
 	
 	public void desligar() {
-		if(ligado == true && velocidade == 0) {
+		if(this.ligado && velocidade == 0) {
 			System.out.println("o carro está desligando");
 			setLigado(false);
 		} else {
@@ -52,17 +53,28 @@ public class Carro {
 		}
 	}
 	
-	public void acelerar() {
-		if(ligado == true) {
+	public void acelerar(double valor, int limiteVelocidade) {
+		if(ligado) {
 			System.out.println("o carro está acelerando!");
+			if (getVelocidade() + valor <= limiteVelocidade) {
+				setVelocidade(getVelocidade()+valor); 				
+			} else {
+				setVelocidade((double)limiteVelocidade);
+			}
 		} else {
 			System.out.println("o carro está desligado!");
 		}
 	}
 	
-	public void frear() {
-		if(ligado == true && velocidade != 0) {
+	public void frear(double valor) {
+		if(ligado && velocidade >0) {
 			System.out.println("o carro está freiando!");
+			if (getVelocidade() - valor >= 0) {
+				setVelocidade(getVelocidade()-valor); 				
+			} else {
+				setVelocidade(0.0);
+			}
+			
 		} else {
 			System.out.println("o carro está parado!");
 		}
@@ -85,6 +97,16 @@ public class Carro {
 
 	public void setLigado(boolean ligado) {
 		this.ligado = ligado;
+	}
+
+
+	public Double getVelocidade() {
+		return velocidade;
+	}
+
+
+	public void setVelocidade(Double velocidade) {
+		this.velocidade = velocidade;
 	}
 	
 	

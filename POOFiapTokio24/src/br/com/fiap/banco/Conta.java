@@ -20,7 +20,7 @@ public class Conta {
 	public boolean sacar(double valor) {
 		consultarSaldo();
 		if (valor <= this.saldo) {
-			setSaldo( this.saldo - valor);
+			this.saldo -= valor;
 			return true;
 		} 
 		
@@ -30,7 +30,7 @@ public class Conta {
 	
 	public void depositar(double valor) {
 		consultarSaldo();
-		setSaldo( this.saldo + valor);
+		this.saldo +=valor;
 	}
 	
 	public void transferir(Conta c, double valor) {
@@ -49,7 +49,7 @@ public class Conta {
 	}
 	
 	public void consultarSaldo() {
-		System.out.println("saldo atual da conta " +idConta+ " : " + getSaldo()+"\n");
+		System.out.println("saldo atual da conta " +idConta+ " : " +this.saldo+"\n");
 	}
 	
 
@@ -58,37 +58,9 @@ public class Conta {
 		return "Conta "+idConta+" \n nomeCliente: " + nomeCliente + "\n cpfCliente: " + cpfCliente + "\n numeroConta: " + numeroConta
 				+ "\n saldo: " + saldo;
 	}
-	public String getNomeCliente() {
-		return nomeCliente;
-	}
 
-	public void setNomeCliente(String nomeCliente) {
-		this.nomeCliente = nomeCliente;
-	}
 
-	public String getCpfCliente() {
-		return cpfCliente;
-	}
-
-	public void setCpfCliente(String cpfCliente) {
-		this.cpfCliente = cpfCliente;
-	}
-
-	public int getNumeroConta() {
-		return numeroConta;
-	}
-
-	public void setNumeroConta(int numeroConta) {
-		this.numeroConta = numeroConta;
-	}
-
-	public Double getSaldo() {
-		return saldo;
-	}
-
-	public void setSaldo(Double saldo) {
-		this.saldo = saldo;
-	}
+	
 	
 	
 	
