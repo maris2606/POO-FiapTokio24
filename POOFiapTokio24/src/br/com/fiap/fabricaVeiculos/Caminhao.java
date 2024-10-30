@@ -17,13 +17,13 @@ public class Caminhao {
 	private Double qtdCargaSuportada;
 	private Double qtdCargaAbastecida;
 	private String tipoCargaAbastecida;
-	private String nomeCondutor;
+	private Condutor condutor;
 	private boolean ligado;
 
 
 	public Caminhao(String marca, String modelo, String cor, String renavam,
 			String motor, String tipoCambio, Double aro, Double velocidade, int eixos, Double qtdCargaSuportada,
-			Double qtdCargaAbastecida, String tipoCargaAbastecida, String nomeCondutor, boolean ligado) {
+			Double qtdCargaAbastecida, String tipoCargaAbastecida, Condutor condutor, boolean ligado) {
 		this.marca = marca;
 		this.modelo = modelo;
 		this.cor = cor;
@@ -38,7 +38,7 @@ public class Caminhao {
 		this.qtdCargaSuportada = qtdCargaSuportada;
 		this.qtdCargaAbastecida = qtdCargaAbastecida;
 		this.tipoCargaAbastecida = tipoCargaAbastecida;
-		this.nomeCondutor = nomeCondutor;
+		this.condutor =new Condutor(condutor.getNomeCondutor(), condutor.getIdadeCondutor(), condutor.getCpfCondutor());
 		this.ligado = ligado;
 	}
 
@@ -111,13 +111,14 @@ public class Caminhao {
 				+ "\nanoModelo: " + anoModelo + "\nrenavam: " + renavam + "\nmotor: " + motor + "\ntipoCambio: "
 				+ tipoCambio + "\naro: " + aro + "\nvelocidade: " + velocidade + "\neixos: " + eixos
 				+ "\nqtdCargaSuportada: " + qtdCargaSuportada + "\nqtdCargaAbastecida: " + qtdCargaAbastecida
-				+ "\ntipoCargaAbastecida: " + tipoCargaAbastecida + "\nnomeCondutor: " + nomeCondutor + "\nligado: "
-				+ ligado;
+				+ "\ntipoCargaAbastecida: " + tipoCargaAbastecida + "\nDados do condutor: \n" + this.condutor
+				+ "\nligado: "+ ligado;
 		
 		System.out.println(dados);
 	}
 	
 	
+
 
 
 	public boolean isLigado() {

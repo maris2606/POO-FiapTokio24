@@ -12,13 +12,13 @@ public class Carro {
 	private String tipoCambio;
 	private Double aro;
 	private Double velocidade;
-	private String nomeCondutor;
+	private Condutor condutor;
 	private boolean ligado;
 	
 	
 	
 	public Carro(String marca, String modelo, String cor, String anoFabricacao, String anoModelo, String renavam,
-			String motor, String tipoCambio, Double aro, Double velocidade, String nomeCondutor) {
+			String motor, String tipoCambio, Double aro, Double velocidade,Condutor condutor) {
 		this.marca = marca;
 		this.modelo = modelo;
 		this.cor = cor;
@@ -29,7 +29,7 @@ public class Carro {
 		this.tipoCambio = tipoCambio;
 		this.aro = aro;
 		this.velocidade = velocidade;
-		this.nomeCondutor = nomeCondutor;
+		this.condutor =new Condutor(condutor.getNomeCondutor(), condutor.getIdadeCondutor(), condutor.getCpfCondutor());
 		this.ligado = false;
 	}
 
@@ -83,7 +83,7 @@ public class Carro {
 	public void exibirDadosCarro() {
 		 String dados = "Carro\nmarca: " + marca + "\nmodelo: " + modelo + "\ncor: " + cor + "\nanoFabricacao: " + anoFabricacao
 				+ "\nanoModelo: " + anoModelo + "\nrenavam: " + renavam + "\nmotor: " + motor + "\ntipoCambio: "
-				+ tipoCambio + "\naro: " + aro + "\nvelocidade: " + velocidade + "\nnomeCondutor: " + nomeCondutor
+				+ tipoCambio + "\naro: " + aro + "\nvelocidade: " + velocidade + "\nDados do condutor: \n" + this.condutor
 				+ "\nligado: " + ligado;
 		 
 		 System.out.println(dados);

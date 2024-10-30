@@ -1,5 +1,7 @@
 package br.com.fiap.banco;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Cliente {
@@ -7,10 +9,18 @@ public class Cliente {
 	private String cpfCliente;
 	private Date dataNascimento;
 	
-	public Cliente(String nomeCliente, String cpfCliente, Date dataNascimento) {
+	public Cliente(String nomeCliente, String cpfCliente, String dataNascimento) {
 		this.nomeCliente = nomeCliente;
 		this.cpfCliente = cpfCliente;
-		this.dataNascimento = dataNascimento;
+		
+		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+		
+		try {
+			this.dataNascimento = format.parse(dataNascimento);
+		}catch (ParseException e){
+			System.err.println("formato de data inválida");
+			e.printStackTrace();
+		}
 	}
 
 	public String getNomeCliente() {

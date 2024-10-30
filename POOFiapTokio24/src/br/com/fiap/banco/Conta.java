@@ -1,18 +1,32 @@
 package br.com.fiap.banco;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Conta {
 
 	static int idStatic = 0;
-	private int idConta;
-	private Cliente cliente;
-	private int numeroConta;
-	private Double saldo;
+	protected int idConta;
+	protected Cliente cliente;
+	protected int numeroConta;
+	protected Double saldo;
+	protected Date dataAbertura;
 	
-	Conta (int numeroConta, Double saldo, Cliente cliente){
+	public Conta (int numeroConta, Double saldo, Cliente cliente, String dataAbertura){
 		this.idConta = ++idStatic;
 		this.numeroConta = numeroConta;
 		this.saldo = saldo;
 		this.cliente = cliente;
+		
+		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+		
+		try {
+			this.dataAbertura = format.parse(dataAbertura);
+		}catch (ParseException e){
+			System.err.println("formato de data inválida");
+			e.printStackTrace();
+		}
 	}
 	
 	public boolean sacar(double valor) {

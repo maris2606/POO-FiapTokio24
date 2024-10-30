@@ -33,7 +33,7 @@ public class Executavel {
 
 			System.out.println("----------------");
 
-			contas.add(new Conta(numeroConta, saldo, new Cliente(nomeCliente, cpfCliente, new Date())));
+			contas.add(new Conta(numeroConta, saldo, new Cliente(nomeCliente, cpfCliente, "30/10/2004"), "11/04/2022"));
 		}
 
 		contas.get(0).sacar(20);
