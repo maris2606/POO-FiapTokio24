@@ -4,17 +4,15 @@ public class Conta {
 
 	static int idStatic = 0;
 	private int idConta;
-	private String nomeCliente;
-	private String cpfCliente;
+	private Cliente cliente;
 	private int numeroConta;
 	private Double saldo;
 	
-	Conta (String nomeCliente, String cpfCliente, int numeroConta, Double saldo){
+	Conta (int numeroConta, Double saldo, Cliente cliente){
 		this.idConta = ++idStatic;
-		this.nomeCliente = nomeCliente;
-		this.cpfCliente = cpfCliente;
 		this.numeroConta = numeroConta;
 		this.saldo = saldo;
+		this.cliente = cliente;
 	}
 	
 	public boolean sacar(double valor) {
@@ -35,16 +33,11 @@ public class Conta {
 	
 	public void transferir(Conta c, double valor) {
 		consultarSaldo();
-		/*if (valor <=  this.saldo) {
-			setSaldo( this.saldo - valor);
-			
-			c.setSaldo(c.getSaldo() + valor);
-		} else {
-			System.out.println("você não pode transferir um valor maior que o seu saldo");
-		}*/
 		
 		if (this.sacar(valor)) {
 			c.depositar(valor);
+		} else {
+			System.out.println("você não pode transferir um valor maior que o seu saldo");
 		}
 	}
 	
@@ -55,7 +48,9 @@ public class Conta {
 
 	@Override
 	public String toString() {
-		return "Conta "+idConta+" \n nomeCliente: " + nomeCliente + "\n cpfCliente: " + cpfCliente + "\n numeroConta: " + numeroConta
+		return "Conta "+idConta+" \n nomeCliente: " + this.cliente.getNomeCliente() + 
+				"\n cpfCliente: " + this.cliente.getCpfCliente() + 
+				"\n numeroConta: " + numeroConta
 				+ "\n saldo: " + saldo;
 	}
 
