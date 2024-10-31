@@ -7,51 +7,27 @@ import java.util.Scanner;
 public class Executavel {
 
 	public static void main(String[] args) {
-		Scanner scan = new Scanner(System.in);
+		Cliente cliente1 = new Cliente("João Silva", "12345678900", "15/04/1985");
+        ContaCorrente contaCorrente = new ContaCorrente(1234, 1000.0, cliente1, "01/01/2022", 500.0);
+        ContaPoupanca contaPoupanca = new ContaPoupanca(5678, 2000.0, cliente1, "01/01/2022", 1500.0);
 
-		String nomeCliente;
-		String cpfCliente;
-		int numeroConta;
-		Double saldo;
+        System.out.println("Conta Corrente - Saldo inicial:");
+        System.out.println(contaCorrente.exibirSaldo());
 
-		ArrayList<Conta> contas = new ArrayList<Conta>();
+        contaCorrente.depositar(200);
+        contaCorrente.sacar(150);
+        contaCorrente.investir("CDB", 100);
+        System.out.println("\nConta Corrente - depois das transações:");
+        System.out.println(contaCorrente.exibirSaldo());
 
-		for (int i = 0; i < 3; i++) {
-			System.out.println("Digite o nome: ");
-			nomeCliente = scan.nextLine();
+        System.out.println("\nConta Poupança - Saldo inicial:");
+        System.out.println(contaPoupanca.exibirSaldo());
 
-			System.out.println("Digite o cpf: ");
-			cpfCliente = scan.nextLine();
-
-			System.out.println("Digite o numero da conta: ");
-			numeroConta = scan.nextInt();
-
-			System.out.println("Digite o saldo: ");
-			saldo = scan.nextDouble();
-
-			scan.nextLine();
-
-			System.out.println("----------------");
-
-			contas.add(new Conta(numeroConta, saldo, new Cliente(nomeCliente, cpfCliente, "30/10/2004"), "11/04/2022"));
-		}
-
-		contas.get(0).sacar(20);
-
-		contas.get(0).sacar(130);
-
-		contas.get(0).depositar(500);
-
-		contas.get(0).transferir(contas.get(1), 100);
-		contas.get(1).consultarSaldo();
-
-		contas.get(2).consultarSaldo();
-
-		System.out.println(contas.get(0));
-
-		System.out.println(contas.get(1));
-
-		System.out.println(contas.get(2));
+        contaCorrente.transferir(contaPoupanca, 300);
+        System.out.println("\nConta Corrente - depois das transferência:");
+        System.out.println(contaCorrente.exibirSaldo());
+        System.out.println("\nConta Poupança - depois das receber transferência:");
+        System.out.println(contaPoupanca.exibirSaldo());
 
 	}
 

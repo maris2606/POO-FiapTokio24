@@ -4,7 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Conta {
+public abstract class Conta {
 
 	static int idStatic = 0;
 	protected int idConta;
@@ -60,13 +60,7 @@ public class Conta {
 	}
 	
 
-	@Override
-	public String toString() {
-		return "Conta "+idConta+" \n nomeCliente: " + this.cliente.getNomeCliente() + 
-				"\n cpfCliente: " + this.cliente.getCpfCliente() + 
-				"\n numeroConta: " + numeroConta
-				+ "\n saldo: " + saldo;
-	}
+	public abstract String exibirSaldo();
 
 
 	
