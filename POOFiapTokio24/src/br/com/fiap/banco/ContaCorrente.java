@@ -13,10 +13,7 @@ public class ContaCorrente extends Conta{
 			
 			this.saldoInvestimento += produto.investir(valor);;
 		}
-		
 	}
-	
-	
 	
 	@Override
 	public String exibirSaldo() {

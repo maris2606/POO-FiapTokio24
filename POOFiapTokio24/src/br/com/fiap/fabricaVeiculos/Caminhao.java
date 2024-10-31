@@ -2,44 +2,24 @@ package br.com.fiap.fabricaVeiculos;
 
 import java.util.Date;
 
-public class Caminhao {
-	private String marca;
-	private String modelo;
-	private String cor;
-	private Date anoFabricacao;
-	private Date anoModelo;
-	private String renavam;
-	private String motor;
-	private String tipoCambio;
-	private Double aro;
-	private Double velocidade;
+public class Caminhao extends Veiculo{
 	private int eixos;
 	private Double qtdCargaSuportada;
 	private Double qtdCargaAbastecida;
 	private String tipoCargaAbastecida;
-	private Condutor condutor;
-	private boolean ligado;
 
 
-	public Caminhao(String marca, String modelo, String cor, String renavam,
-			String motor, String tipoCambio, Double aro, Double velocidade, int eixos, Double qtdCargaSuportada,
-			Double qtdCargaAbastecida, String tipoCargaAbastecida, Condutor condutor, boolean ligado) {
-		this.marca = marca;
-		this.modelo = modelo;
-		this.cor = cor;
-		this.anoFabricacao = new Date();
-		this.anoModelo = new Date(); 
-		this.renavam = renavam;
-		this.motor = motor;
-		this.tipoCambio = tipoCambio;
-		this.aro = aro;
-		this.velocidade = velocidade;
+	
+
+	public Caminhao(String marca, String modelo, String cor, Date anoFabricacao, Date anoModelo, String renavam,
+			String motor, String tipoCambio, Double aro, Double velocidade, Condutor condutor, boolean ligado,
+			int eixos, Double qtdCargaSuportada, Double qtdCargaAbastecida, String tipoCargaAbastecida) {
+		super(marca, modelo, cor, anoFabricacao, anoModelo, renavam, motor, tipoCambio, aro, velocidade, condutor,
+				ligado);
 		this.eixos = eixos;
 		this.qtdCargaSuportada = qtdCargaSuportada;
 		this.qtdCargaAbastecida = qtdCargaAbastecida;
 		this.tipoCargaAbastecida = tipoCargaAbastecida;
-		this.condutor =new Condutor(condutor.getNomeCondutor(), condutor.getIdadeCondutor(), condutor.getCpfCondutor());
-		this.ligado = ligado;
 	}
 
 

@@ -1,36 +1,14 @@
 package br.com.fiap.fabricaVeiculos;
 import java.util.Date;
 
-public class Carro {
-	private String marca;
-	private String modelo;
-	private String cor;
-	private Date anoFabricacao;
-	private Date anoModelo;
-	private String renavam;
-	private String motor;
-	private String tipoCambio;
-	private Double aro;
-	private Double velocidade;
-	private Condutor condutor;
-	private boolean ligado;
+public class Carro extends Veiculo{
+
 	
-	
-	
-	public Carro(String marca, String modelo, String cor, String anoFabricacao, String anoModelo, String renavam,
-			String motor, String tipoCambio, Double aro, Double velocidade,Condutor condutor) {
-		this.marca = marca;
-		this.modelo = modelo;
-		this.cor = cor;
-		this.anoFabricacao = new Date();
-		this.anoModelo = new Date(); // tem sql date tbm
-		this.renavam = renavam;
-		this.motor = motor;
-		this.tipoCambio = tipoCambio;
-		this.aro = aro;
-		this.velocidade = velocidade;
-		this.condutor =new Condutor(condutor.getNomeCondutor(), condutor.getIdadeCondutor(), condutor.getCpfCondutor());
-		this.ligado = false;
+
+	public Carro(String marca, String modelo, String cor, Date anoFabricacao, Date anoModelo, String renavam,
+			String motor, String tipoCambio, Double aro, Double velocidade, Condutor condutor, boolean ligado) {
+		super(marca, modelo, cor, anoFabricacao, anoModelo, renavam, motor, tipoCambio, aro, velocidade, condutor,
+				ligado);
 	}
 
 

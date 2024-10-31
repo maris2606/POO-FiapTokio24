@@ -21,6 +21,8 @@ public class Executavel {
         System.out.println("Conta Corrente - depois de investir:");
         System.out.println(contaCorrente.exibirSaldo());
         
+        
+        contaCorrente.depositar(200);
 
 	}
 
