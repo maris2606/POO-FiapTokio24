@@ -14,27 +14,13 @@ public class Executavel {
         System.out.println("Conta Corrente - Saldo inicial:");
         System.out.println(contaCorrente.exibirSaldo());
         
+        CDB cdb = new CDB();
         
-        contaCorrente.investir("cdb", 1000);
-        System.out.println("\nConta Corrente - depois do investimento:");
+        contaCorrente.investimento(cdb, 1000);
+        
+        System.out.println("Conta Corrente - depois de investir:");
         System.out.println(contaCorrente.exibirSaldo());
-
-        /*
-        contaCorrente.depositar(200);
-        contaCorrente.sacar(150);
-        contaCorrente.investir("CDB", 100);
-        System.out.println("\nConta Corrente - depois das transações:");
-        System.out.println(contaCorrente.exibirSaldo());
-
-        System.out.println("\nConta Poupança - Saldo inicial:");
-        System.out.println(contaPoupanca.exibirSaldo());
-
-        contaCorrente.transferir(contaPoupanca, 300);
-        System.out.println("\nConta Corrente - depois das transferência:");
-        System.out.println(contaCorrente.exibirSaldo());
-        System.out.println("\nConta Poupança - depois das receber transferência:");
-        System.out.println(contaPoupanca.exibirSaldo());
-        */
+        
 
 	}
 

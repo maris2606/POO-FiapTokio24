@@ -8,28 +8,11 @@ public class ContaCorrente extends Conta{
 		super(numeroConta, saldo, cliente, dataAbertura);
 	}
 	
-	public void investir(String tipoProduto, double valor) {
+	public void investimento(Produto produto, double valor) {
 		if (this.sacar(valor)) {
 			
-			switch (tipoProduto.toLowerCase()) {
-				case "cdb":
-					valor*=1.01;
-					break;
-				case "lci":
-					valor*=1.009;
-					break;
-				case "lca":
-					valor*=1.008;
-					break;
-				default:
-					System.out.println("tipo de produto inválido");
-					break;
-			
-			}
-			
-			this.saldoInvestimento += valor;
+			this.saldoInvestimento += produto.investir(valor);;
 		}
-		
 		
 	}
 	
