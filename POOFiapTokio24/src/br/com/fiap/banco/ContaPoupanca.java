@@ -6,7 +6,12 @@ public class ContaPoupanca extends Conta{
 	public ContaPoupanca(int numeroConta, Double saldo, Cliente cliente, String dataAbertura, double saldoPoupanca) {
 		
 		super(numeroConta, saldo, cliente, dataAbertura);
-		this.saldoPoupanca = saldoPoupanca;
+		
+	}
+	
+	public void poupar (double valor) {
+		this.saldo -= valor;
+		this.saldoPoupanca += valor;
 	}
 	
 	@Override
