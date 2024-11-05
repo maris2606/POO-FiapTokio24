@@ -16,7 +16,8 @@ public class TesteTryCatch {
 				
 			} catch (ArithmeticException | ArrayIndexOutOfBoundsException e) {
 				System.out.println("exceção: "+ e);
-			}
+			} 
+		
 			
 			System.out.println("i = " + i);
 			System.out.println("res = " + res);
