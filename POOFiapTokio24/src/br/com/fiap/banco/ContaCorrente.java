@@ -8,7 +8,7 @@ public class ContaCorrente extends Conta{
 		super(numeroConta, saldo, cliente, dataAbertura);
 	}
 	
-	public void investimento(Produto produto, double valor) {
+	public void investimento(Produto produto, double valor) throws SaldoInsuficiente {
 		if (this.sacar(valor)) {
 			
 			this.saldoInvestimento += produto.investir(valor);;

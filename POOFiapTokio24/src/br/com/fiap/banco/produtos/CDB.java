@@ -1,4 +1,6 @@
-package br.com.fiap.banco;
+package br.com.fiap.banco.produtos;
+
+import br.com.fiap.banco.Produto;
 
 public class CDB implements Produto{
 	@Override

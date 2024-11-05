@@ -29,15 +29,13 @@ public abstract class Conta {
 		}
 	}
 	
-	public boolean sacar(double valor) {
+	public boolean sacar(double valor) throws SaldoInsuficiente {
 		consultarSaldo();
 		if (valor <= this.saldo) {
 			this.saldo -= valor;
 			return true;
 		} 
-		
-		System.out.println("você não pode sacar um valor maior que o seu saldo");
-		return false;
+		throw new SaldoInsuficiente("saldo insuficiente");
 	}
 	
 	public void depositar(double valor) {
@@ -45,7 +43,7 @@ public abstract class Conta {
 		this.saldo +=valor;
 	}
 	
-	public void transferir(Conta c, double valor) {
+	public void transferir(Conta c, double valor) throws SaldoInsuficiente {
 		consultarSaldo();
 		
 		if (this.sacar(valor)) {

@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import br.com.fiap.banco.produtos.CDB;
+
 public class Executavel {
 
 	public static void main(String[] args) {
@@ -16,9 +18,15 @@ public class Executavel {
         
         CDB cdb = new CDB();
         
-        contaCorrente.investimento(cdb, 1000);
+        try {
+        	
+        	contaCorrente.investimento(cdb, 100000);
+        	
+        	System.out.println("Conta Corrente - depois de investir:");
+        } catch (SaldoInsuficiente e) {
+        	System.out.println("erro: " + e);
+        }
         
-        System.out.println("Conta Corrente - depois de investir:");
         System.out.println(contaCorrente.exibirSaldo());
         
         
