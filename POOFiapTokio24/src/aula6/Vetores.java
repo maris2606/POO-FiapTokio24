@@ -5,7 +5,7 @@ public class Vetores {
 	public static void main(String[] args) {
 		int[] x = new int[10];
 		lerVetor(x);
-		imprimirVetor(x);
+		imprimirVetorForEach(x);
 		
 	}
 	
@@ -22,5 +22,10 @@ public class Vetores {
 		}
 	}
 
+	public static void imprimirVetorForEach(int[] x){
+		for(int n : x) {
+			System.out.println(n + "\t");
+		}
+	}
 
 }

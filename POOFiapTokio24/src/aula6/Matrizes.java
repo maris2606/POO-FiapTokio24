@@ -6,13 +6,13 @@ public class Matrizes {
 
 	public static void main(String[] args) {
 		int[][] x = new int[5][7];
-		lerVetor(x);
-		imprimirVetor(x);
+		lerMatriz(x);
+		imprimirMatrizForEach(x);
 		
 	}
 
 	
-	public static void lerVetor(int[][] x){
+	public static void lerMatriz(int[][] x){
 		Random r = new Random();
 		
 		for(int i=0; i<x.length; i++) {
@@ -23,7 +23,7 @@ public class Matrizes {
 	
 	}
 
-	public static void imprimirVetor(int[][] x){
+	public static void imprimirMatriz(int[][] x){
 		for(int i=0; i<x.length; i++) {
 			for(int j=0; j < x[0].length; j++) {
 				System.out.print(x[i][j] + " ");
@@ -31,5 +31,16 @@ public class Matrizes {
 			System.out.println("");
 		}
 	}
+	
+	public static void imprimirMatrizForEach(int[][] x){
+		for(int[] linha : x) {
+			for(int n : linha) {
+				System.out.print(n + " ");
+			}
+			System.out.println("");
+		}
+	}
 
+	
+	
 }
