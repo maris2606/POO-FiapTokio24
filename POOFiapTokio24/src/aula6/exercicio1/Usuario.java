@@ -1,11 +1,13 @@
 package aula6.exercicio1;
 
+import java.util.Iterator;
+import java.util.List;
+
 public class Usuario implements Comparable<Usuario>{
 	private int idUsuario;
 	private String nome, senha;
 
 	public Usuario(int idUsuario, String nome, String senha) {
-		super();
 		this.idUsuario = idUsuario;
 		this.nome = nome;
 		this.senha = senha;
@@ -46,6 +48,18 @@ public class Usuario implements Comparable<Usuario>{
 		return 0;
 	}
 
+	public static List<Usuario> remover(String nome, List<Usuario> list) {
+		Iterator<Usuario> iterator = list.iterator();
+		
+		while (iterator.hasNext()) {
+			Usuario usuario = iterator.next();
+			if(usuario.getNome() == nome) {
+				iterator.remove();
+			}
+		}
+		return list;
+	}
+	
 	@Override
 	public String toString() {
 		return "Usuario [idUsuario=" + idUsuario + ", nome=" + nome + ", senha=" + senha + "]";

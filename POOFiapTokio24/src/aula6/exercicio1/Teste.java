@@ -2,11 +2,12 @@ package aula6.exercicio1;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class Teste {
 
 	public static void main(String[] args) {
-		ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+		List<Usuario> usuarios = new ArrayList<Usuario>();
 		
 		usuarios.add(new Usuario(5, "popi", "pepe"));
 		usuarios.add(new Usuario(1, "mellena", "peta"));
@@ -20,6 +21,12 @@ public class Teste {
 		for (Usuario u : usuarios) {
 			System.out.println(u);
 		}
+		
+		List<Usuario> listaAtualizada = Usuario.remover("joões", usuarios);
+		for(Usuario user : listaAtualizada) {
+			System.out.println(user.getNome());
+		}
+		
 	}
 
 }
