@@ -1,4 +1,4 @@
-package aula2;
+package aula5;
 
 public class TesteTryCatch {
 
