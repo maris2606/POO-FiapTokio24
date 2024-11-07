@@ -2,6 +2,8 @@ package aula7.ex2;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 
 import aula6.exercicio1.Usuario;
@@ -10,11 +12,24 @@ public class ex3 {
 
 	public static void main(String[] args) {
 
-		Collection<Integer> lista = new ArrayList<Integer>();
+//		Collection<Integer> lista = new ArrayList<Integer>(); 
+		// 50.000 4 ms
+		// 100.000 5 ms     !
+		// 1.000.000 22 ms  !
+		
+//		Collection<Integer> lista = new HashSet<Integer>(); 
+		// 50.000 6 ms
+		// 100.000 11 ms
+		// 1.000.000 72 ms
+		
+		Collection<Integer> lista = new LinkedList<Integer>(); 
+		// 50.000 3 ms      !
+		// 100.000 6 ms
+		// 1.000.000 102 ms
 		
 		long inicio = System.currentTimeMillis();
 		
-		for (int i = 0; i<50000; i++) {
+		for (int i = 0; i<1000000; i++) {
 			lista.add(i);
 		}
 		
